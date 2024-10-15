@@ -10,6 +10,9 @@ module.exports = {
       screens:{
         "xs" : "480px",
         "xxs" : "320px",
+      },
+      fontSize:{
+        "xxs" : "0.5rem",
       }
     },
   },
