@@ -9,13 +9,13 @@
 </head>
 <body class="relative flex overflow-hidden h-screen w-screen">
     <!-- navigasi server (paling kiri) -->
-    <nav class="bg-gray-300  dark:bg-gray-900 absolute w-16 -left-48 lg:static flex lg:flex-[0.6] flex-col items-center pt-4 h-screen text-strongaccent dark:text-accent z-10">
+    <nav id="server-nav" class="bg-gray-300  dark:bg-gray-900 absolute w-16 -translate-x-48 lg:translate-x-0 lg:static flex lg:flex-[0.6] flex-col items-center pt-4 h-screen text-strongaccent dark:text-accent z-10 transition-all duration-200 ease-linear">
         <ul class="flex flex-col gap-4">
             <li class="group bg-gray-200 dark:bg-gray-800 hover:bg-strongaccent dark:hover:bg-accent hover:text-gray-300 dark:hover:text-gray-800 w-10 h-10 rounded-3xl lg:w-12 lg:h-12 lg:rounded-3xl xl:w-14 xl:h-14 xl:rounded-[1.75rem] hover:rounded-xl relative flex items-center justify-center transition-all duration-200 ease-linear">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 md:w-6 lg:w-7 xl:w-8 bi bi-person-fill" viewBox="0 0 16 16">
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
                 </svg>
-                <div class="scale-0 group-hover:scale-100 transition-all origin-left duration-150 ease-in text-gray-700 dark:text-gray-100 bg-gray-300 dark:bg-gray-900 flex justify-center items-center absolute left-20 w-fit p-2 h-7 px-4 text-center rounded">
+                <div class="scale-0 group-hover:scale-100 transition-all origin-left duration-150 ease-in text-gray-700 dark:text-gray-100 bg-gray-300 dark:bg-gray-900 flex justify-center items-center absolute left-full w-fit p-2 h-7 px-4 text-center rounded">
                     <p class="text-sm whitespace-nowrap">
                         Profile
                     </p>
@@ -70,26 +70,26 @@
             </li>
 
         </ul>
-        <!-- <button type="button" onclick="toggleAppearance()" id="toggle-mode" class="relative cursor-pointer bg-slate-400 dark:bg-slate-600 mt-auto mb-8 w-16 h-8 rounded-full transition-all duration-200 ease-linear group">
+        <button type="button" onclick="toggleAppearance()" id="toggle-mode" class="relative cursor-pointer bg-slate-400 dark:bg-slate-600 mt-auto mb-8 w-16 h-8 rounded-full transition-all duration-200 ease-linear group">
             <div class="absolute bg-slate-200 dark:bg-gray-950 w-6 h-6 top-1  left-9 dark:left-1 rounded-full transition-all duration-200 ease-linear"></div>
             <p class="text-sm scale-0 group-hover:scale-100 transition-all origin-left duration-150 ease-in text-gray-700 dark:text-gray-100 bg-gray-300 dark:bg-gray-900 text-center absolute text-nowrap left-20 top-1 px-2 py-1 rounded ">
                 Dark Mode
             </p>
-        </button> -->
+        </button>
 
     </nav>
 
     <!-- navigasi channel -->
-    <div class="absolute w-32 -left-32 lg:static lg:flex-[1.5] h-screen bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+    <div id="channel-nav" class="absolute w-32 -translate-x-32 lg:translate-x-0 lg:static lg:flex-[1.5] h-screen bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 transition-all duration-200 ease-linear">
 
         <!-- judul server -->
         <div class="relative flex items-center justify-center border-b-2 border-gray-400/25 dark:border-gray-950/25 h-12">
-            <h2 class="text-xl font-medium">
+            <h2 class="text-sm lg:text-xl font-medium">
                 Server Name
             </h2>
         </div>
 
-        <div class="flex flex-col lg:gap-1 pl-4 pt-4">
+        <div class="flex flex-col lg:gap-1 pl-4 pt-4">            
             <!-- text channels -->
             <div class="dark:hover:text-white hover:text-gray-900 cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 md:w-3 lg:w-4 bi bi-chat-left-dots inline-block" viewBox="0 0 16 16">
@@ -210,7 +210,14 @@
         <div class="flex flex-[3] lg:flex-[4] flex-col w-full ">
 
             <!-- judul channel -->
-            <div class="flex flex-row items-center pl-4 border-b-2 border-gray-400/25 dark:border-gray-950/25 h-12 ">
+            <div class="flex flex-row items-center gap-4 pl-4 border-b-2 border-gray-400/25 dark:border-gray-950/25 h-12 ">
+                
+                <!-- hamburger menu -->
+                <div id="hamburger" class="inline-block lg:hidden w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list w-full h-full" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                      </svg>
+                </div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chat-left-dots inline-block w-6 h-6" viewBox="0 0 16 16">
                         <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
