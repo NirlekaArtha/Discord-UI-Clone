@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-accent: #CAF5B3;
+  --color-strongaccent: #5BCF1B;
+  --breakpoint-xs: 480px;
+  --breakpoint-xxs: 320px;
+  --text-xxs: 0.5rem;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer utilities {
     /* Hide scrollbar for Chrome, Safari and Opera */

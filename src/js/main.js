@@ -49,6 +49,7 @@ memberMenu.addEventListener("click", () =>
 
 function toggleAppearance()
 {
+    console.log("toggleAppearance() called");
     html.classList.toggle("dark");
     toggleText.innerHTML = html.classList.contains("dark") ? "Dark Mode" : "Light Mode";
 }
